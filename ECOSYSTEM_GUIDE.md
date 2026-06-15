@@ -1,73 +1,51 @@
-﻿# 🧠 Phoenix AI Core: Guía Maestra del Ecosistema (Post-Formateo)
+﻿# 🦅 Phoenix AI Core: Guía Maestra del Ecosistema (Versión Final)
 
-Esta guía documenta la arquitectura definitiva de tu ecosistema de Inteligencia Artificial Local (Multi-Agente + Memoria a Largo Plazo). Úsala para reconstruir tu plataforma después de formatear tu PC.
-
-## 🏛️ La Santísima Trinidad de tu Entorno
-1.  **AegisLegacy:** Escudo y ofuscación (Intercepción JS/Kotlin).
-2.  **Phoenix V3 (AndroidDecompilator):** Análisis de seguridad, reconstrucción y escaneo.
-3.  **Phoenix AI Core (Este repositorio):** El Cerebro. El orquestador que toma decisiones, escribe código y recuerda tu progreso.
+Esta es la documentación definitiva que debes leer tras formatear tu PC para levantar tu imperio de Inteligencia Artificial en local desde cero. No necesitas internet para operar, solo para la instalación inicial.
 
 ---
 
-## 🛠️ 1. Reconstruyendo el "Segundo Cerebro" (Memoria a Largo Plazo)
-Para que la IA recuerde todos tus proyectos, reglas y herramientas, usaremos **Obsidian** con capacidades RAG (Retrieval-Augmented Generation).
-
-### Pasos de Instalación:
-1.  Descarga e instala [Obsidian](https://obsidian.md/).
-2.  Crea una "Bóveda" (Vault) llamada PhoenixKnowledgeBase. Aquí guardarás todos tus .md, ideas, scripts y comandos de Aegis.
-3.  Ve a Configuración de Obsidian > **Community Plugins** > Desactiva el Modo Seguro.
-4.  Busca e instala el plugin **Smart Connections** (o *Local LLM Hub*).
-5.  **Conexión:** En la configuración del plugin, selecciona Ollama como proveedor e ingresa la URL local: http://localhost:11434.
-6.  **Resultado:** Ahora puedes abrir el chat lateral en Obsidian. La IA leerá automáticamente todos tus archivos y te responderá teniendo en cuenta todo lo que han construido juntos.
+## FASE 1: El Motor Cerebral (Ollama)
+Ollama es el motor que ejecuta las IAs en tu computadora sin depender de la nube.
+1. **Descargar Ollama:** Ve a [ollama.com](https://ollama.com) e instálalo.
+2. **Descargar tus Modelos Específicos:** Abre PowerShell y ejecuta los siguientes comandos uno por uno. Estos son los modelos hiper-optimizados que tu hardware (Intel i5, 8GB RAM) puede soportar sin congelarse:
+   * ollama pull deepseek-r1:1.5b *(Para razonamiento matemático y arquitectura).*
+   * ollama pull qwen2.5-coder:1.5b *(Para escribir código puro).*
+   * ollama pull moondream *(Para procesar imágenes y leer documentos visuales).*
+   * ollama pull nomic-embed-text *(Para la base de datos de memoria vectorial).*
 
 ---
 
-## 👥 2. La Mesa Redonda (Panel de Expertos)
-En este repositorio tienes el script mesa_redonda.py, construido con **CrewAI**. Este script permite que DeepSeek (Arquitecto) y QwenCoder (Ingeniero) debatan y trabajen secuencialmente.
+## FASE 2: Segundo Cerebro Personal (Obsidian + IA)
+Para tener un "Segundo Cerebro" personal donde la IA converse contigo sobre tus notas:
 
-### Dependencias:
+1. **Descargar Obsidian:** [obsidian.md](https://obsidian.md)
+2. **El Secreto del CORS (IMPORTANTE):** Windows bloquea que Obsidian hable con Ollama por seguridad. Para arreglarlo, debes abrir tus variables de entorno en Windows y crear una nueva llamada OLLAMA_ORIGINS con el valor pp://obsidian.md*. Reinicia tu PC tras hacer esto.
+3. **Instalar el Plugin 'Smart Connections':**
+   * En Obsidian, ve a Configuración > Plugins de la comunidad > Desactiva el "Modo Seguro".
+   * Busca e instala **"Smart Connections"**.
+   * En su configuración, elige "Ollama" como proveedor y http://localhost:11434 como URL.
+   * Selecciona 
+omic-embed-text para los embeddings y tu qwen2.5-coder:1.5b para el chat.
+4. **Tutorial Recomendado en YouTube:** Si tienes dudas visuales, busca en YouTube: *"How to setup Smart Connections Obsidian Ollama local RAG"*.
+
+---
+
+## FASE 3: Ecosistema Empresarial Autónomo (CrewAI + Multimodal)
+Si quieres ir más allá de Obsidian y vender esto a empresas, o crear tus propias apps, usarás los scripts en Python que creamos en este repositorio.
+
+### Instalación de Librerías Base
+Abre tu terminal en la carpeta del proyecto y ejecuta:
 `ash
-pip install crewai
+pip install crewai langchain langchain-community chromadb openai-whisper pypdf sentence-transformers duckduckgo-search
 `
 
-### Configuración de Modelos (¡Muy Importante!):
-Asegúrate de que los nombres de los modelos en el script coincidan exactamente con los que tienes descargados.
-Para saber tus nombres exactos, abre una terminal y escribe:
-`ash
-ollama list
-`
-Verás algo como deepseek-r1:7b o qwen2.5-coder:7b.
-Abre mesa_redonda.py y actualiza estas dos líneas con tus nombres exactos:
-`python
-llm='ollama/tu-modelo-exacto-deepseek'
-llm='ollama/tu-modelo-exacto-qwen'
-`
+### Arquitectura de los Scripts
+* **mesa_redonda.py**: El cerebro estratégico. Conecta a DeepSeek y Qwen en una sala de chat para debatir ideas o escribir código de manera autónoma.
+* **memoria_multiformato.py**: El motor RAG. Lee PDFs, Excels (CSV) y TXT, los convierte en matemáticas (ChromaDB) y le da las respuestas precisas a tu IA sin alucinar.
+* **prueba_multimodal.py**: El procesador audiovisual. Escucha audios .wav/.mp3 usando **OpenAI Whisper**, y lee diagramas o facturas .jpg usando **Moondream**, para luego pasárselos a la Mesa Redonda.
 
-### Ejecución:
-`ash
-python mesa_redonda.py
-`
-El script iniciará el debate: DeepSeek diseñará la arquitectura y Qwen escribirá el código.
+### Recomendaciones de Software Extra
+* Instala **FFmpeg** en Windows (necesario para que Whisper procese los audios). Descárgalo de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/) y agrégalo a tu variable PATH.
 
 ---
-
-## 🌐 3. Módulo Oráculo (Conexión a Internet)
-Si quieres que tu panel de expertos pueda buscar en internet (para superar su fecha de entrenamiento), CrewAI lo hace increíblemente fácil.
-1. Instala las herramientas de CrewAI:
-   pip install crewai-tools
-2. En tu script mesa_redonda.py, añade esto al principio:
-   `python
-   from crewai_tools import SerperDevTool
-   search_tool = SerperDevTool()
-   `
-3. Asígnalo a tu agente:
-   `python
-   architect = Agent(
-       ...,
-       tools=[search_tool]
-   )
-   `
-Ahora, si DeepSeek no sabe algo, automáticamente buscará en Google antes de responderte.
-
----
-*Fin de la guía. Bienvenido al siguiente nivel de la Ingeniería de Software Autónoma.*
+*Fin de la Documentación. Formatea tranquilo. El Fénix renacerá de sus cenizas en cuanto corras estos comandos.*
