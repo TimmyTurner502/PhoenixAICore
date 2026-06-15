@@ -49,3 +49,16 @@ pip install crewai langchain langchain-community chromadb openai-whisper pypdf s
 
 ---
 *Fin de la Documentación. Formatea tranquilo. El Fénix renacerá de sus cenizas en cuanto corras estos comandos.*
+
+### Nuevo: Orquestador Secuencial (Protección de Memoria RAM)
+Si necesitas procesar decenas de PDFs, audios o imágenes de golpe, tu computadora se quedará sin RAM si los abres todos al mismo tiempo.
+Para esto creamos **orquestador_secuencial.py**.
+1. **¿Cómo funciona?** El script crea dos carpetas: Bandeja_Entrada y Bandeja_Procesados.
+2. **Uso:** Simplemente arrastra todos tus documentos a la Bandeja_Entrada y ejecuta el script.
+3. **Magia:** La IA leerá el Archivo 1, cerrará el proceso, forzará la liberación de RAM (gc.collect()), moverá el Archivo 1 a la Bandeja_Procesados para que no se duplique ni se pierda, y luego pasará al Archivo 2. Si quieres eliminar los archivos, debes ir a la Bandeja de Procesados y borrarlos tú mismo manualmente.
+
+### Nuevo: Corrección Antihallucinación (Whisper)
+En el script prueba_multimodal.py, actualizamos la forma en que Whisper escucha el audio agregando el parámetro condition_on_previous_text=False. Esto soluciona un problema técnico conocido del modelo "tiny", forzándolo a concentrarse solo en el sonido real sin mezclar idiomas ni inventar palabras (alucinaciones).
+
+---
+*Fin de la Documentación.*

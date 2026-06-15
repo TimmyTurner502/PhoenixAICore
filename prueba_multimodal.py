@@ -1,4 +1,4 @@
-﻿import os
+import os
 import urllib.request
 import base64
 import json
@@ -42,7 +42,7 @@ print(f"[*] Cargando modelo Whisper 'tiny' (consumo mínimo de RAM)...")
 try:
     modelo_audio = whisper.load_model("tiny")
     print(f"[*] Escuchando el archivo: {audio_path}")
-    resultado_audio = modelo_audio.transcribe(audio_path)
+    resultado_audio = modelo_audio.transcribe(audio_path, condition_on_previous_text=False)
     texto_escuchado = resultado_audio["text"]
     print(f"\n[Texto extraído del Audio]:\n\"{texto_escuchado.strip()}\"")
 except Exception as e:
