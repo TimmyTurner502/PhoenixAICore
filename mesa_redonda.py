@@ -17,7 +17,7 @@ architect = Agent(
     backstory='Eres un visionario de la tecnología. No te limitas por lo que es "posible". Piensas en arquitecturas innovadoras y seguras.',
     verbose=True,
     allow_delegation=False,
-    llm='ollama/deepseek-r1:latest'
+    llm='ollama/deepseek-r1:1.5b'
 )
 
 coder = Agent(
@@ -26,7 +26,7 @@ coder = Agent(
     backstory='Eres un experto mundial en Python y Java. Escribes código eficiente, seguro y bien comentado. Confías ciegamente en la teoría del arquitecto.',
     verbose=True,
     allow_delegation=False,
-    llm='ollama/qwen2.5-coder:latest'
+    llm='ollama/qwen2.5-coder:1.5b'
 )
 
 # ==========================================
