@@ -1,0 +1,4 @@
+ID_Empleado,Nombre,Departamento,Ventas_Totales_USD,Bono_Autorizado
+EMP001,Roberto Gomez,Ventas Corporativas,45000,Sí
+EMP002,Lucia Fernandez,Retail,12000,No
+EMP003,Sistema Automatizado X-9,Digital,890000,Sí
